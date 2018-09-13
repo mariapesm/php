@@ -1,9 +1,10 @@
+<?php include ('php/index.html/footer.php');?>
 <!DOCTYPE html>
 <html>
   <head>
   </head>
 <body>
-<?php include ('php/index.html/footer.php');?>
+
   <p>Here some text must display</p>
 </body>
 </html>
