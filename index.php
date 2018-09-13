@@ -1,6 +1,4 @@
-<?php
-echo "My first PHP script!";
-?> 
+<?php include 'footer.php';?>
 <!DOCTYPE html>
 <html>
   <head>
