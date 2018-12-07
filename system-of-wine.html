@@ -1197,8 +1197,33 @@ drunk before the meal, and the red fortified wines (port and madeira) drunk afte
 	   
     </div>
 	
-    
-  
+    <div class="card">
+      <h3>Search wine's name</h3>
+       <form>
+      <input type="text" onkeyup="showHint(this.value)" placeholder="Search.." name="search">
+	  
+      <button type="submit" class="none"  data-target="#myModal3">Search</button>
+	   </form>
+	   <h5>Suggestions: <span id="txtHint"></span></h5>
+	   <!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title">Scopes</h5>
+        </div>
+        <div class="modal-body">
+          <h5>The site is voluntarily designed to portray the kinds of wines that is part of the project at Visually.com</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><h5>Close</h5></button>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+    </div>
   </div>
 </div>
 
@@ -1233,7 +1258,22 @@ $(document).ready(function () {
 </script>
 
 
-
+<script>
+function showHint(str) {
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open("GET", "https://evidenced-tides.000webhostapp.com/gethint.php?q="+str, true);
+        xmlhttp.send();
+    }
+}
+</script>
 </body>
 </html>
-
